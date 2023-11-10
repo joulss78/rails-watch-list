@@ -1,13 +1,23 @@
-<h1>Lists</h1>
-
-<ul>
-  <% @lists.each do |list| %>
-    <%= link_to list_path(list), class: "link-unstyled text-decoration-none" do %>
-              <div class="simple-picture-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.pathe.nl/gfx_content/bioscoop/Tuschinski/PatheTuschinski_Zaal1a.jpg); background-size: cover; color: white; padding-top: 50px; height: 500px">
+    <div class="container">
+    <h1>Welcome to Movies WatchList</h1>
+    <p>You've saved <%= @lists.count %> list so far.</p>
+    </div>
+</div>
+<div class="container lists-container">
+  <main class="p-4">
+    <ul class="list-unstyled container">
+      <div class="row">
+        <% @lists.each do |list| %>
+          <li class="col-12 col-sm-6 col-md-4">
+            <%= link_to list_path(list), class: "link-unstyled text-decoration-none" do %>
+              <div class="simple-picture-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>); height : 200px; background-size: cover; text-align: center; color: white">
                 <%= list.name %>
               </div>
-    <% end %>
-  <% end %>
-</ul>
-
-<%= link_to "Add a list", "lists/new", class: "btn btn-primary"%>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+    </ul>
+  </main>
+</div>

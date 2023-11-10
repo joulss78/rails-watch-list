@@ -14,8 +14,10 @@
       <%= link_to "Bookmark a new movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
   </div>
 <br>
-<div class="row">
-  <div class="col-6">
+<div class="container lists-container">
+  <main class="p-4">
+    <ul class="list-unstyled container">
+      <div class="row">
     <% @list.bookmarks.each do |bookmark| %>
       <div class="card" style="width: 18rem;">
         <%= image_tag bookmark.movie.poster_url, class: "card-img-top" %>
@@ -29,6 +31,5 @@
       </div>
     <% end %>
   </div>
-</div>
-
-</div>
+  </div>
+  </div>
